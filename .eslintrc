@@ -1,23 +1,25 @@
 {
-  "env": {
-    "node": true,
-    "es6": true
-  },
-  "parser" : "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "airbnb-typescript/base"
-  ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["airbnb-base"],
+  "settings": {
+    "import/extensions": [".ts"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts"]
+      }
+    }
   },
   "rules": {
-    "@typescript-eslint/explicit-member-accessibility": true,
+    "import/extensions": [
+      "error",
+      "ignorePackages", {
+        "ts": "never"
+      }
+    ],
     "no-alert": "error",
     "eol-last": "error",
     "semi": "error",
@@ -26,8 +28,5 @@
     "no-await-in-loop": "off",
     "no-plusplus": "off",
     "import/no-cycle": "off"
-  },
-  "plugins": [
-    "import"
-  ]
+  }
 }
