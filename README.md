@@ -1,0 +1,3 @@
+# eslintConfigAirbnbTS
+
+## dependencies
